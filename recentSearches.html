@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recent Searches</title>
+  <style>
+    #search-history {
+      border: 1px solid #ccc;
+      max-width: 200px;
+      position: absolute;
+      background: #fff;
+      display: none;
+    }
+    #search-history div {
+      padding: 5px;
+      cursor: pointer;
+    }
+    #search-history div:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="search-input" placeholder="Search..." />
+  <button id="search-btn">Search</button>
+  <div id="search-history"></div>
+
+  <script src ="recentSearches.js"></script>
+  </body>
+  </html>
