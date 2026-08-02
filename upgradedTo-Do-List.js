@@ -253,26 +253,6 @@ filters.forEach(function(button) {
 loadTodos();
 renderTodos();
 
-// Updated toggleTodo
-function toggleTodo(id) {
-    const todos = loadTodos();
-    const todo = todos.find(t => t.id === id);
-    
-    if (todo) {
-        todo.completed = !todo.completed;
-        saveTodos(todos);
-        renderTodos();
-    }
-}
-
-// Updated deleteTodo
-function deleteTodo(id) {
-    let todos = loadTodos();
-    todos = todos.filter(t => t.id !== id);
-    saveTodos(todos);
-    renderTodos();
-}
-
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
     renderTodos();

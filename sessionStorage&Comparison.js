@@ -42,8 +42,8 @@ console.log(localStorage.getItem("theme"));          // "dark"
     sessionStorage.setItem(FORM_KEY, JSON.stringify(savedData));
   });
 
-  const form = document.getElementById("contact-form");
-const inputs = form.querySelectorAll("input, textarea");
+  const contactForm = document.getElementById("contact-form");
+const inputs = contactForm.querySelectorAll("input, textarea");
 
 // Save on every input
 inputs.forEach(input => {
@@ -60,7 +60,7 @@ inputs.forEach(input => {
 });
 
 // Clear on successful submit
-form.addEventListener("submit", () => {
+contactForm.addEventListener("submit", () => {
     inputs.forEach(input => {
         sessionStorage.removeItem(`form_${input.name}`);
     });

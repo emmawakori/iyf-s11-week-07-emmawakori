@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Dashboard</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      transition: background 0.3s ease;
+    }
+    .weather-app {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 24px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    #weather-icon {
+      width: 90px;
+      height: 90px;
+    }
+    #error {
+      color: #d32f2f;
+      margin-top: 10px;
+      display: none;
+      font-weight: bold;
+    }
+    #loader {
+      margin-top: 10px;
+      display: none;
+      font-weight: bold;
+    }
+    #weather-display {
+      display: none;
+      margin-top: 20px;
+    }
+    .weather-details {
+      margin-top: 12px;
+      text-align: left;
+      display: grid;
+      gap: 8px;
+    }
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 6px;
+    }
+    #forecast-section {
+      margin-top: 24px;
+      text-align: left;
+    }
+    #forecast-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .forecast-card {
+      background: #f7f9fc;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .forecast-date {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .forecast-card img {
+      width: 50px;
+      height: 50px;
+    }
+    #recent-searches {
+      margin-top: 24px;
+      text-align: left;
+    }
+    #search-history {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+    #search-history li {
+      cursor: pointer;
+      color: #1565c0;
+      text-decoration: underline;
+      margin: 6px 0;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #1565c0;
+      color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="weather-app">
+        <h1>Weather Dashboard</h1>
+
+        <form id="search-form">
+            <input
+                type="text"
+                id="city-input"
+                placeholder="Enter city name..."
+                required
+            >
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="actions">
+            <button type="button" id="unit-toggle">Switch to °F</button>
+            <button type="button" id="use-location">Use my location</button>
+        </div>
+
+        <div id="loader">Loading...</div>
+
+        <div id="error"></div>
+
+        <div id="weather-display">
+            <div class="weather-main">
+                <h2 id="city-name"></h2>
+                <img id="weather-icon" src="" alt="Weather icon">
+                <p id="temperature"></p>
+                <p id="description"></p>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail">
+                    <span>Feels Like</span>
+                    <span id="feels-like"></span>
+                </div>
+                <div class="detail">
+                    <span>Humidity</span>
+                    <span id="humidity"></span>
+                </div>
+                <div class="detail">
+                    <span>Wind</span>
+                    <span id="wind"></span>
+                </div>
+                <div class="detail">
+                    <span>Pressure</span>
+                    <span id="pressure"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="forecast-section">
+            <h3>5-Day Forecast</h3>
+            <div id="forecast-container"></div>
+        </div>
+
+        <div id="recent-searches">
+            <h3>Recent Searches</h3>
+            <ul id="search-history"></ul>
+        </div>
+    </div>
+
+    <script src="openWeatherMap.js"></script>
+</body>
+</html>
+
